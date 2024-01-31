@@ -11,7 +11,7 @@ for i in range(28):
 #plot
 transposed_data = list(zip(*data))
 for i, index_data in enumerate(transposed_data):
-    plt.plot([x * 0.3 for x in range(1, len(data) + 1)], index_data, label=f'Core {i}')
+    plt.plot([x * 0.2 for x in range(1, len(data) + 1)], index_data, label=f'Core {i}')
 plt.xlabel('Time (sec)')
 plt.ylabel('Percentage (%)')
 plt.title('CPU Utilization per core')
