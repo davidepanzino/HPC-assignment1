@@ -1,19 +1,4 @@
-import time
-from functools import wraps
-
-# decorator to time
-def timefn(fn):
-    @wraps(fn)
-    def measure_time(*args, **kwargs):
-        t1 = time.time()
-        result = fn(*args, **kwargs)
-        t2 = time.time()
-        print(f"@timefn: {fn.__name__} took {t2 - t1} seconds")
-        return result
-    return measure_time
-
 grid_shape = (640, 640)
-
 
 def evolve(grid, dt, D=1.0):
     xmax, ymax = grid_shape
@@ -29,7 +14,6 @@ def evolve(grid, dt, D=1.0):
             new_grid[i][j] = grid[i][j] + D * (grid_xx + grid_yy) * dt
     return new_grid
 
-@timefn
 def run_experiment(num_iterations):
     # Setting up initial conditions 
     xmax, ymax = grid_shape
